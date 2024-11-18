@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="HealthBar" style="background-image: url(&quot;project://database/Assets/UI/Health/UIHealthFrame.png?fileID=21300000&amp;guid=7ac0bf4d41c95451aa29275d598c8098&amp;type=3#UIHealthFrame&quot;); width: 255px; height: 117px; -unity-background-scale-mode: scale-to-fit;">
+        <ui:VisualElement name="Portrait" style="background-image: url(&quot;project://database/Assets/Sprites/Ship/Main%20Ship%20-%20Base%20-%20Full%20health.png?fileID=21300000&amp;guid=f5e51bc5f179dd6b685c3782822e3de2&amp;type=3#Main Ship - Base - Full health&quot;); width: 116px; height: 117px; -unity-background-scale-mode: scale-to-fit; position: absolute;" />
+        <ui:VisualElement name="HealthBarContainer" style="position: absolute; top: 35px; left: 107px; width: 142px; height: 44px; -unity-background-scale-mode: scale-to-fit;">
+            <ui:VisualElement name="Health" style="background-image: url(&quot;project://database/Assets/UI/Health/UIHealthBar.png?fileID=21300000&amp;guid=eb40b1ec9dd31984da39a6497bed3d2c&amp;type=3#UIHealthBar&quot;); width: 100%; height: 100%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
