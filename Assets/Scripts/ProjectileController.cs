@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
@@ -43,24 +44,25 @@ public class ProjectileController : MonoBehaviour
             {
                 GameObject enemy = collision.gameObject;
 
+                enemy.GetComponent<EnemyController>().EnemyHealth--;
+
                 if (enemy.GetComponent<EnemyController>().EnemyHealth <= 0f)
                 {
+                    Destroy(enemy, 0.75f);
+
+                    enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
                     gameManager.hittedEnemies.Add(enemy);
                     gameManager.hittedEnemiesCounting--;
 
                     if (uiHandler != null)
                         uiHandler.UpdateFlow(gameManager.enemyFlow, gameManager.hittedEnemiesCounting);
-
-                    Destroy(enemy);
                 }
-                else
-                    enemy.GetComponent<EnemyController>().EnemyHealth--;
 
             }
         }
 
         Destroy(gameObject);
     }
-
 
 }

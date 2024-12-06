@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64cfda8a94508dfd3abdb6a3d1c512c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 7865576871061956108, guid: 0d730273be6f2aa359f7248b3561febf, type: 3}
   playerHealth: 0
+  isInvincible: 0
   invincibleTimer: 0

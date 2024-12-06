@@ -10,7 +10,7 @@ public class HealthController : MonoBehaviour
     private UIDocument uIDocument;
     private VisualElement healthBar;
     public static HealthController healthInstance;
-    private bool isInvincible;
+    public bool isInvincible;
     public float invincibleTimer;
 
     void Awake()

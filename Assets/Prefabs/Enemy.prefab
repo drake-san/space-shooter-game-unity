@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 2552615842734298519}
   - component: {fileID: 7210364153085356389}
   - component: {fileID: 3310717007482995927}
-  - component: {fileID: 6534428731012300269}
+  - component: {fileID: 837172478707740210}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2552615842734298516
 Transform:
@@ -127,6 +127,9 @@ MonoBehaviour:
   - {fileID: -330467292, guid: 22d320deb28191d569bdc76ff044684f, type: 3}
   - {fileID: 1264387117, guid: 22d320deb28191d569bdc76ff044684f, type: 3}
   - {fileID: 1556707323, guid: 22d320deb28191d569bdc76ff044684f, type: 3}
+  - {fileID: 123875605, guid: 22d320deb28191d569bdc76ff044684f, type: 3}
+  - {fileID: -396624436, guid: 22d320deb28191d569bdc76ff044684f, type: 3}
+  - {fileID: 674443500, guid: 22d320deb28191d569bdc76ff044684f, type: 3}
   patrolTimer: 0
   projectile: {fileID: 8124127496845318006, guid: f8a7ad3261737357b9e0374f70f8fea2, type: 3}
 --- !u!58 &3310717007482995927
@@ -145,7 +148,7 @@ CircleCollider2D:
   m_Offset: {x: -0.033867806, y: -0.017748594}
   serializedVersion: 2
   m_Radius: 0.38598415
---- !u!95 &6534428731012300269
+--- !u!95 &837172478707740210
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

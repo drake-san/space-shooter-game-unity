@@ -33,8 +33,6 @@ public class EnemyController : MonoBehaviour
         }
     }
     [SerializeField]
-    private Sprite[] enemySprites;
-    [SerializeField]
     private float patrolTimer;
     private int direction = 1;
     private Vector2 position;
@@ -45,11 +43,12 @@ public class EnemyController : MonoBehaviour
     private UIHandler uiHandler;
     private Animator animator;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         enemySprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         patrolTimer = 3.0f;
 
@@ -73,20 +72,21 @@ public class EnemyController : MonoBehaviour
             goDown = true;
         }
 
-        if (enemyHealth < 3 && enemyHealth >= 2)
+        if (enemyHealth < 3f && enemyHealth >= 2f)
+            animator.SetInteger("Health", 2);
+
+        else if (enemyHealth <= 2f && enemyHealth >= 1f)
+            animator.SetInteger("Health", 1);
+
+        else if (enemyHealth <= 0f)
         {
-            Debug.Log(enemySprite.sprite.name);
-            enemySprite.sprite = enemySprites[0];
+            animator.SetInteger("Health", 0);
+
+            GetComponent<CircleCollider2D>().enabled = false;
         }
 
 
-        else if (enemyHealth <= 2 && enemyHealth >= 1)
-            enemySprite.sprite = enemySprites[1];
 
-        if (enemyHealth <= 0)
-        {
-            animator.SetFloat("Health", 0);
-        }
     }
 
     void FixedUpdate()
@@ -102,7 +102,8 @@ public class EnemyController : MonoBehaviour
             goDown = false;
         }
 
-        rb.MovePosition(position);
+        if (rb.bodyType == RigidbodyType2D.Dynamic)
+            rb.MovePosition(position);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -121,14 +122,17 @@ public class EnemyController : MonoBehaviour
 
         else if (collision.gameObject.tag == "Player")
         {
-            healthController.ChangeHealth(-2);
-            gameManager.hittedEnemies.Add(gameObject);
-            gameManager.hittedEnemiesCounting--;
+            if (!healthController.isInvincible)
+            {
+                healthController.ChangeHealth(-2);
+                gameManager.hittedEnemies.Add(gameObject);
+                gameManager.hittedEnemiesCounting--;
 
-            if (uiHandler != null)
-                uiHandler.UpdateFlow(gameManager.enemyFlow, gameManager.hittedEnemiesCounting);
+                if (uiHandler != null)
+                    uiHandler.UpdateFlow(gameManager.enemyFlow, gameManager.hittedEnemiesCounting);
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -105,6 +106,20 @@ public class GameManager : MonoBehaviour
             uIHandler.UpdateTimer((int)respawnFlowTime);
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
+    }
+
+
+    void OnApplicationQuit()
+    {
+        enemy.GetComponent<EnemyController>().EnemySpeed = 3.0f;
+        enemy.GetComponent<EnemyController>().EnemyHealth = 3.0f;
+
     }
 
     public void SpawnEnemy()
@@ -130,7 +145,7 @@ public class GameManager : MonoBehaviour
                         enemiesCount += 5;
                         hittedEnemiesCounting = enemiesCount;
 
-                        enemy.GetComponent<EnemyController>().EnemySpeed += 2.0f;
+                        enemy.GetComponent<EnemyController>().EnemySpeed++;
                         enemy.GetComponent<EnemyController>().EnemyHealth++;
 
                         uIHandler.countdown.SetActive(true);
@@ -167,13 +182,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-    }
-
-    void OnApplicationQuit()
-    {
-        enemy.GetComponent<EnemyController>().EnemySpeed = 3.0f;
-        enemy.GetComponent<EnemyController>().EnemyHealth = 3.0f;
 
     }
 
