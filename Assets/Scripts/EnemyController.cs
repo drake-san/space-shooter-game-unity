@@ -138,6 +138,7 @@ public class EnemyController : MonoBehaviour
 
     public void LaunchProjectile()
     {
-        Instantiate(projectile, transform.position, Quaternion.identity);
+        if (enemyHealth < 3f && enemyHealth >= 2f)
+            Instantiate(projectile, transform.position, Quaternion.identity);
     }
 }

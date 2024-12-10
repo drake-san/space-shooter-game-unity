@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9011cb831fd87c395917737f47a1a0, type: 3}
+  m_Name: Double Rocket PowerUp
+  m_EditorClassIdentifier: 
+  name: Double Rocket
+  sprite: {fileID: -2130927710, guid: 780831fe522c0783abd941e7ef8f414d, type: 3}
+  duration: 15

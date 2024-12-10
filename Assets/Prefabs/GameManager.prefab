@@ -53,3 +53,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ab3dd7d69e395d70d889e969a704c9d2, type: 3}
   enemyFlow: 0
   hittedEnemiesCounting: 0
+  powerUp: {fileID: 8687605314774543596, guid: 41a31362ff6bc3a64a25d4e9e9b72280, type: 3}

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private bool gotoNextFlow;
     private float respawnFlowTime = 6.0f;
     private UIHandler uIHandler;
+    public GameObject powerUp;
 
     void Awake()
     {
@@ -36,8 +37,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
-        enemyFlow = 3;
 
         enemies = new List<GameObject>();
 
@@ -58,6 +57,7 @@ public class GameManager : MonoBehaviour
         uIHandler = UIHandler.instance;
 
         uIHandler.flowText.text += enemyFlow + "/" + hittedEnemiesCounting;
+
     }
 
     // Update is called once per frame
@@ -177,6 +177,8 @@ public class GameManager : MonoBehaviour
                     respawnFlowTime = 6.0f;
 
                     gotoNextFlow = false;
+
+                    Instantiate(powerUp);
 
                     uIHandler.countdown.SetActive(false);
                 }
