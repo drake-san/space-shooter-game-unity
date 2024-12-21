@@ -35,7 +35,8 @@ public class ProjectileController : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player")
             {
-                healthController.ChangeHealth(-1);
+                if (!healthController.isInvincible)
+                    healthController.ChangeHealth(-1);
             }
         }
         else

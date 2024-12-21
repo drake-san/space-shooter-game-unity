@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -56,13 +57,31 @@ public class PlayerController : MonoBehaviour
     private GameObject shieldPrefab;
     private GameObject shield;
     private bool isShieldInstantiated;
-    [SerializeField]
     private float rocketLaunchInterval;
+    [SerializeField]
+    private float spawnRocketInterval;
+
+    public float SpawnRocketInterval
+    {
+        get
+        {
+            return spawnRocketInterval;
+        }
+        set
+        {
+            spawnRocketInterval = value;
+        }
+    }
+
+    private Sprite defaultPowerUpCanvas;
 
     void Awake()
     {
         health = 5.0f;
         speed = 5.0f;
+        spawnRocketInterval = 0.5f;
+        defaultPowerUpCanvas = GameObject.Find("PowerUp Image").GetComponent<Image>().sprite;
+
 
         healthController = HealthController.healthInstance;
     }
@@ -94,7 +113,7 @@ public class PlayerController : MonoBehaviour
                 if (rocketLaunchInterval <= 0f)
                 {
                     Instantiate(projectile, new Vector2(transform.position.x, transform.position.y + 1.0f), Quaternion.identity);
-                    rocketLaunchInterval = 0.5f;
+                    rocketLaunchInterval = spawnRocketInterval;
                 }
 
                 if (hasPowerUp)
@@ -142,6 +161,7 @@ public class PlayerController : MonoBehaviour
         if (powerUpTime <= 0f)
         {
             hasPowerUp = false;
+            GameObject.Find("PowerUp Image").GetComponent<Image>().sprite = defaultPowerUpCanvas;
 
             if (isShieldInstantiated)
             {

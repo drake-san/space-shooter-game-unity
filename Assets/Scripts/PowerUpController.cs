@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpController : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class PowerUpController : MonoBehaviour
     private int speed = 3;
     private Vector2 moveDirection;
     private PlayerController playerController;
+    private GameObject powerUpCanvas;
 
     void Start()
     {
         int i = Random.Range(0, powerUpObjects.Length);
 
         powerUp = powerUpObjects[i];
+
+        powerUpCanvas = GameObject.Find("PowerUp Image");
 
         GetComponent<SpriteRenderer>().sprite = powerUp.sprite;
 
@@ -46,6 +50,7 @@ public class PowerUpController : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {
             playerController.PowerUp = true;
+            powerUpCanvas.GetComponent<Image>().sprite = powerUp.sprite;
             Destroy(gameObject);
         }
 

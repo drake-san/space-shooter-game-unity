@@ -176,6 +176,8 @@ public class GameManager : MonoBehaviour
 
                     respawnFlowTime = 6.0f;
 
+                    player.SpawnRocketInterval = Mathf.Clamp(player.SpawnRocketInterval - 0.1f, 0f, 0.5f);
+
                     gotoNextFlow = false;
 
                     Instantiate(powerUp);
